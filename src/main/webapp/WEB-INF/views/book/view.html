@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Book detail</title>
+</head>
+<body>
+<h3>Book detail</h3>
+<a th:href="@{/books}">Back to book list</a>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Author</th>
+    <th>Amount</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td th:text="${book.name}"></td>
+    <td th:text="${book.description}"></td>
+    <td th:text="${book.author}"></td>
+    <td th:text="${book.amount}"></td>
+    <td>
+      <a th:href="@{/borrow/__${book.id}__}">Borrow</a>
+    </td>
+  </tr>
+</table>
+<div th:if="${code}">
+  <p style="color:green">Here is your code: <span th:text="${code}"></span>. Remeber the code and have fun reading</p>
+</div>
+<div th:if="${message}">
+  <p style="color:red" th:text="${message}"></p>
+</div>
+</body>
+</html>
